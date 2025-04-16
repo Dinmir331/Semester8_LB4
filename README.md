@@ -166,7 +166,15 @@
 - **Матрицы ошибок**,  
 - **Precision-Recall кривой**.  
 
+Модель показывает приемлиемые показатели качества, что достаточно для начала тестирования на сторонних изображений.
+
 ![alt text](Images4show/metrics.png)
+
+Метрика качества F1-score и карта местоположений классов на обучаемой выборке, встроенные в YOLOv12:
+
+![alt text](Yolo_result_files/F1_curve.png)
+
+![alt text](Yolo_result_files/labels.jpg)
 
 ---
 
@@ -183,17 +191,17 @@
 
 В целом алгоритм в большей степени справляется с распознаванием классов и выдает правильный результат
 
-![alt text](ResultsOfTest/Chihuahua_result1.png) ![alt text](ResultsOfTest/Chihuahua_result5.png) ![alt text](ResultsOfTest/Chihuahua_result8.png)
+![alt text](ResultOfTest/Chihuahua_result1.png) ![alt text](ResultOfTest/Chihuahua_result5.png) ![alt text](ResultOfTest/Chihuahua_result8.png)
 
-![alt text](ResultsOfTest/Maffin_result1.png) ![alt text](ResultsOfTest/Maffin_result4.png) ![alt text](ResultsOfTest/Maffin_result6.png)
+![alt text](ResultOfTest/Maffin_result1.png) ![alt text](ResultOfTest/Maffin_result4.png) ![alt text](ResultOfTest/Maffin_result6.png)
 
 Однако в некоторых случаях распознать объект не получается, либо это происходит не в полной мере:
 
-![alt text](ResultsOfTest/Chihuahua_result6.png)
+![alt text](ResultOfTest/Chihuahua_result6.png)
 
 Конкретно в данном случае это может быть связанно с тем чт само изображение имеет необычно большое разрешение из-за чего класс не может быть определен
 
-![alt text](ResultsOfTest/Chihuahua_result4.png)
+![alt text](ResultOfTest/Chihuahua_result4.png)
 
 Здесь же алгоритм обозначил только один центральный объект.
 
@@ -201,19 +209,27 @@
 
 Алгоритм в большей степени справляется с распознаванием классов среди изображений не находящихся в датасете и выдает правильный результат
 
-![alt text](ResultsOfTest/Chihuafin_result3.png) ![alt text](ResultsOfTest/Chihuafin_result2.png) ![alt text](ResultsOfTest/Chihuafin_result11.png)
+![alt text](ResultOfTest/Chihuafin_result3.png) ![alt text](ResultOfTest/Chihuafin_result2.png) ![alt text](ResultOfTest/Chihuafin_result11.png)
 
-![alt text](ResultsOfTest/Chihuafin_result1.png) ![alt text](ResultsOfTest/Chihuafin_result14.png) ![alt text](ResultsOfTest/Chihuafin_result7.png)
+![alt text](ResultOfTest/Chihuafin_result1.png) ![alt text](ResultOfTest/Chihuafin_result14.png) ![alt text](ResultOfTest/Chihuafin_result7.png)
 
 В подборке из 16 изображений на одном из изображении модель смогла распознать только заднюю часть чихуа хуа, что говорит об неидеальности распознавания объектов на сложных изображениях с большим разрешением:
 
-![alt text](ResultsOfTest/Chihuafin_result15.png)
+![alt text](ResultOfTest/Chihuafin_result15.png)
 
 #### Применение модели для изображений из мема
 
 В подборке из 16 изображений с плохим качеством из одноименного мема, модель показала что смогла отличить чихуахуа и маффин в 14 из 16 случаев. Модель ошиблась в двух случаях и вместо маффина распознала чихуахуа, что не удивительно, ведь они имеют очень схожие черты, характерные маленьким желтым собачкам с черными глазками и черным носиком.
 
-![alt text](ResultsOfTest/meme_result.png)
+![alt text](ResultOfTest/meme_result.png)
+
+#### Применение модели в выборке YOLOv12
+
+Классификация и детекция объектов в проверочной (валидационной) выборке, встроенной в YOLOv12:
+
+![alt text](Yolo_result_files/val_batch0_pred.jpg)
+
+![alt text](Yolo_result_files/val_batch2_pred.jpg)
 
 ---
 
